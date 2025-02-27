@@ -8,11 +8,8 @@ connectDB();
 // Initialize Express app
 const app = express();
 app.use(express.json());
-app.use(cors({
-        origin: process.env.FRONTEND_URL || 'http://localhost:5172',
-        methods: ['GET', 'POST', 'OPTIONS'],
-        allowedHeaders: ['Content-Type'],
-}))
+app.use(cors({origin:true}))
+
 // ✅ POST - Authorize and Update Cart Details
     app.post('/authorize/:cart_id', async (req, res) => {
         const { cart_id } = req.params;
