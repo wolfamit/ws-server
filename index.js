@@ -1,13 +1,14 @@
 const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
+const cors = require('cors');
 const {Cart , Item} = require('./model');
 const connectDB = require('./db'); // Import DB connection
 connectDB();
 // Initialize Express app
 const app = express();
 app.use(express.json());
-
+app.use(cors())
 // ✅ POST - Authorize and Update Cart Details
     app.post('/authorize/:cart_id', async (req, res) => {
         const { cart_id } = req.params;
