@@ -4,14 +4,14 @@ const express = require('express');
 const cors = require('cors');
 const {Cart , Item} = require('./model');
 const connectDB = require('./db'); // Import DB connection
-connectDB();
+
 // Initialize Express app
 const app = express();
-app.use(express.json());
+app.use(express.json({limit: "30mb" , extended: "true"}));
 app.use(cors({origin:true}))
 
 // ✅ POST - Authorize and Update Cart Details
-    app.post('/authorize/:cart_id', async (req, res) => {
+app.post('/authorize/:cart_id', async (req, res) => {
         const { cart_id } = req.params;
         const { cell, customerName } = req.body;
     
@@ -98,7 +98,7 @@ app.post('/v2/update/item' , async (req, res) => {
 // Start Express Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
-
+connectDB();
 
 // Initialize WebSocket server
 // const wss = new WebSocket.Server({ port: 8080 });
