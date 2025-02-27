@@ -2,8 +2,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
 const {Cart , Item} = require('./model');
-const db = require('./db'); // Import DB connection
-
+const connectDB = require('./db'); // Import DB connection
+connectDB();
 // Initialize Express app
 const app = express();
 app.use(express.json());
