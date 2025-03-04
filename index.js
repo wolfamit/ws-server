@@ -100,9 +100,9 @@ app.post('/v2/update/item' , async (req, res) => {
 
 
 // Start Express Server
+connectDB();
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
-connectDB();
 
 // Initialize WebSocket server
 // const wss = new WebSocket.Server({ port: 8080 });
