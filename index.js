@@ -10,6 +10,10 @@ const app = express();
 app.use(express.json({limit: "30mb" , extended: "true"}));
 app.use(cors({origin:true}))
 
+app.use('/' , async (req , res) => {
+    res.status(200).send("Hello CloudCart")
+})
+
 // ✅ POST - Authorize and Update Cart Details
 app.post('/authorize/:cart_id', async (req, res) => {
         const { cart_id } = req.params;
