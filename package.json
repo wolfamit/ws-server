@@ -11,6 +11,6 @@
     "ws": "^8.18.d1"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   }
 }
